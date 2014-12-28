@@ -10,7 +10,7 @@ Input "OPCODE: ",O
 Input "INT-A: ",X
 32→B
 
-// Convert integer X into base 2 ans store it to ʟA
+// Convert integer X into base 2 and store it to ʟA
 X
 fPart(Ans/seq(2^X,X,B,1,⁻1))≥.5→A
 
