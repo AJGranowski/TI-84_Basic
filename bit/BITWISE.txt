@@ -17,69 +17,57 @@ fPart(Ans/seq(2^X,X,B,1,⁻1))≥.5→A
 // Since opcodes 0-2 are only dealing with one integer, we will only ask for integer B if the opcode calls for it
 O>2
 While Ans
-Input "INT-B: ",X
-X
-fPart(Ans/seq(2^X,X,B,1,⁻1))≥.5→B
-0
+  Input "INT-B: ",X
+  X
+  fPart(Ans/seq(2^X,X,B,1,⁻1))≥.5→B
+  0
 End
 
 // Bitwise NOT
-not(O
-While Ans
-not(ʟA→A
-0
-End
+If not(O
+  not(ʟA→A
 
 // Bitwise SHIFT-LEFT
 O=1
 While Ans
-ʟA(B→X
-B-1→dim(ʟA
-augment({X},ʟA→A
-0
+  ʟA(B→X
+  B-1→dim(ʟA
+  augment({X},ʟA→A
+  0
 End
 
 // Bitwise SHIFT-RIGHT
 O=2
 While Ans
-ʟA(1→X
-DeltaList(cumSum(ʟA→A
-X→ʟA(B
-0
+  ʟA(1→X
+  DeltaList(cumSum(ʟA→A
+  X→ʟA(B
+  0
 End
 
 // Bitwise AND
-O=3
-While Ans
-ʟA and ʟB→A
-0
-End
+If O=3
+  ʟA and ʟB→A
 
 // Bitwise OR
-O=4
-While Ans
-ʟA or ʟB→A
-0
-End
+If O=4
+  ʟA or ʟB→A
 
 // Bitwise XOR
-O=5
-While Ans
-ʟA xor ʟB→A
-0
-End
+If O=5
+  ʟA xor ʟB→A
 
 // Bitwise ADD
 O=6
 While Ans
-0→C
-For(I,B,1,⁻1)
-ʟA(I→X
-ʟB(I→Y
-X xor Y xor C→ʟA(I
-((X and Y) or (X and C)) or (Y and C)→C
-End
-0
+  0→C
+  For(I,B,1,⁻1)
+    ʟA(I→X
+    ʟB(I→Y
+    X xor Y xor C→ʟA(I
+    ((X and Y) or (X and C)) or (Y and C)→C
+  End
+  0
 End
 
 // Convert from base 2 to base 10

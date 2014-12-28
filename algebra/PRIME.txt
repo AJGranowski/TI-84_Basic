@@ -4,7 +4,7 @@
 // Get and sterilize input
 Input " HOW MANY?: ",X
 If X<1
-1→X
+	1→X
 iPart(X→X
 
 // Unarchive/initialize ʟPRIME
