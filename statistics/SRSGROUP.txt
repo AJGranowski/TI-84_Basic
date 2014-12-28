@@ -1,0 +1,139 @@
+// SIMPLE RANDOM SAMPLE GROUP
+// Selects x numbers from 1 to y and splits them up into z groups
+
+DelVar X
+SetUpEditor A
+
+If dim(ʟA
+	Menu(" SRSGROUP ","N[|e]|w SRS",B,"RESET EDITOR",A
+
+Goto B
+
+Lbl A
+SetUpEditor 
+1→X
+
+Lbl B
+DelVar ʟADelVar ʟBDelVar ʟCDelVar ʟDDelVar ʟEDelVar ʟFDelVar ʟGDelVar ʟHDelVar ʟIDelVar ʟJDelVar ʟKDelVar ʟLDelVar ʟMDelVar ʟNDelVar ʟODelVar ʟPDelVar ʟQDelVar ʟRDelVar ʟS
+"   EDITOR RESET.
+
+If X
+	Goto D
+
+// Get and sterilize inputs
+Input "POPUL.: ",A
+Input "SAMPLE: ",B
+Input "GROUPS: ",C
+round(abs(A),0→A
+If not(Ans
+	1→A
+round(abs(B),0→B
+If not(B
+	1→B
+If B>A
+	A→B
+If B>999
+	999→B
+round(abs(C),0→C
+If not(Ans
+	1→C
+
+// The Stat>Edit menu can only have 18 lists at a time
+Ans>18
+While Ans
+	ClrHome
+	Disp "ERROR:
+	Output(3,3,"ONLY 18
+	Output(4,2,"GROUPS ARE
+	Output(5,2,"AVALABLE.
+	Output(8,1,"PRESS ENTER...
+	Pause 
+	ClrHome
+	SetUpEditor 
+	Stop
+	0
+End
+
+If C>B
+	B→C
+
+// Initialize the random list
+{0→RAND
+0→dim(ʟRAND
+
+// If we don't need to pick numbers at random, fill the table
+If B=A
+	seq(X,X,1,B→RAND
+// And then skip the next part
+If dim(ʟRAND
+	Goto C
+
+// Select numbers at random
+// (Each combination of numbers has the same probability of being chosen)
+// This operation is slow with large population sizes, but it's faster than random in a lot of cases
+DelVar IDelVar KWhile I<A and K<B
+	I+1→I
+	randInt(0,A-Ans)<B-K
+	While Ans
+		1+K→K
+		I→ʟRAND(Ans
+		0
+	End
+End
+
+// Scramble the numbers
+Lbl C
+rand(B→TEMP
+SortA(ʟTEMP,ʟRAND
+
+// Waste memory and split the numbers up into groups so it looks nice
+For(I,1,C)
+	0→dim(ʟTEMP
+	iPart(B/C)+(I≤CfPart(B/C→K
+	For(X,1,K)
+		CfPart(B/C
+		X+(I-1)iPart(B/C)+(I-1)(I-1≤Ans)+Ans(I-1>Ans
+		ʟRAND(iPart(Ans)+(fPart(Ans)>0→ʟTEMP(X
+	End
+	If I=1
+	ʟTEMP→A
+	If I=2
+	ʟTEMP→B
+	If I=3
+	ʟTEMP→C
+	If I=4
+	ʟTEMP→D
+	If I=5
+	ʟTEMP→E
+	If I=6
+	ʟTEMP→F
+	If I=7
+	ʟTEMP→G
+	If I=8
+	ʟTEMP→H
+	If I=9
+	ʟTEMP→I
+	If I=10
+	ʟTEMP→J
+	If I=11
+	ʟTEMP→K
+	If I=12
+	ʟTEMP→L
+	If I=13
+	ʟTEMP→M
+	If I=14
+	ʟTEMP→N
+	If I=15
+	ʟTEMP→O
+	If I=16
+	ʟTEMP→P
+	If I=17
+	ʟTEMP→Q
+	If I=18
+	ʟTEMP→R
+End
+
+SetUpEditor A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S
+" -Goto STAT>E[|d][i][t]
+Lbl D
+DelVar ADelVar BDelVar CDelVar IDelVar KDelVar ʟRANDDelVar ʟTEMPAns

@@ -1,0 +1,68 @@
+// FACTOR
+// Factors any number down to it's primes
+
+Prompt X
+X
+
+{0→TEMP
+0→dim(ʟTEMP
+
+// Give up?
+X
+If abs(real(Ans)+imag(Ans))≤1
+	Goto Q
+
+// Factor out i
+imag(Ans
+While Ans
+	[i]→ʟTEMP(1+dim(ʟTEMP
+	X/[i]→X
+	0
+End
+
+real(X→X
+
+// Factor out fractions
+fPart(X) and iPart(X
+While Ans
+	X/iPart(X→ʟTEMP(1+dim(ʟTEMP
+	X/(X/iPart(X→X
+	0
+End
+
+round(X,0→X
+
+// Factor out negatives
+X<0
+While Ans
+	⁻1→ʟTEMP(1+dim(ʟTEMP
+	⁻X→X
+	0
+End
+
+abs(X→X
+
+// Factor out 2's
+While not(fPart(Ans/2
+	2→ʟTEMP(1+dim(ʟTEMP
+	X/2→X
+End
+
+// Factor out other numbers (3,5,7,9,11,13...√n)
+3→θ
+While Ans≤√(X
+	X
+	While not(fPart(Ans/θ
+		θ→ʟTEMP(1+dim(ʟTEMP
+		X/θ→X
+	End
+	θ+2→θ
+End
+
+// If X cannot be factored, call it a prime and add it on to the end
+If X>2
+	X→ʟTEMP(1+dim(ʟTEMP
+
+ʟTEMP
+Lbl Q
+DelVar θDelVar ʟTEMPAns

@@ -1,0 +1,127 @@
+// CIPHER
+// VARIABLES:
+// Str2 = The character set
+// B = bit depth
+// Str1 = Input and output text
+// I = Str1 index
+// K = Str2 index
+// ʟTEMP = A temporary storage for base 2 values
+// ʟTEXT = Input and output text in base 2
+// ʟKEY = Cipher text in base 2
+
+// The character set (Must be a power of two long!)
+"?ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.()
+Ans→Str2
+
+// Check if the character set is a power of two, and error if it isn't
+fPart(log(length(Str2),2
+If (Ans=0 or Ans=1) and length(Str2)≥2
+	Goto S
+
+ClrHome
+Disp "ERROR:
+Disp "  BAD CHAR MAP!
+Disp "
+Disp "CHAR COUNT MUST
+Disp "BE A POWER OF 2!
+Disp "
+Pause "PRESS ENTER…
+"           ERROR→Str1
+Goto Q
+
+// The start of the program
+Lbl S
+
+// Calculate the bit depth off of the character set
+iPart(log(length(Str2),2))+(fPart(log(length(Str2),2))>0)→B
+
+0→X
+Input "TEXT:",Str1
+
+// String to bit function (rather messy)
+Lbl B
+X+1→X
+For(I,1,length(Str1))
+  For(K,1,length(Str2))
+    
+    sub(Str1,I,1)=sub(Str2,K,1
+    
+    // If the character doesn't exist in the set, use the first character (leaps of logic here)
+    Ans+2(K=length(Str2) and not(Ans
+    While Ans
+      
+      If Ans=2
+        1→K
+      
+			// Convert K to base 2
+      fPart((K-1)/seq(2^X,X,1,B,1))≥.5
+      
+      If I=1
+        Ans→ʟTEMP
+      
+      If I>1
+        augment(ʟTEMP,Ans→ʟTEMP
+      
+      9ᴇ99→K
+      0
+    End
+  End
+End
+
+X=1
+While Ans
+  ʟTEMP→ʟTEXT
+  
+  Input " KEY:",Str1
+  ClrHome
+  0
+End
+
+If X=1
+  Goto B
+
+ʟTEMP→ʟKEY
+DelVar ʟTEMP
+
+Disp "PROCESSING...
+
+// Copy ʟKEY enough times so it is the same size as ʟTEXT
+ʟKEY
+For(X,2,dim(ʟTEXT)/dim(ʟKEY))
+  augment(Ans,ʟKEY
+End
+Ans→ʟKEY
+dim(ʟTEXT)→dim(ʟKEY
+
+// Preform the XOR cipher
+ʟTEXT xor ʟKEY→ʟTEXT
+
+// Discard ʟKEY to save memory
+DelVar ʟKEY
+
+
+For(I,1,dim(ʟTEXT)/B)
+	
+	// Get the letter in base 2 from the right side of the list
+  ʟTEXT
+  seq(Ans(dim(Ans)-B+X),X,1,B,1)→TEMP
+	
+	// Remove the rightmost letter from the list
+  dim(ʟTEXT)-B→dim(ʟTEXT
+	
+	// Convert the rightmost letter from base2 to base 10
+  sum(ʟTEMP*seq(2^(X-1),X,1,B,1
+	
+	// Match the integer to the letter in the character set
+  sub(Str2,Ans(Ans+1≤length(Str2))+1,1
+	
+  If I=1
+    Ans→Str1
+  If I>1
+    Ans+Str1→Str1
+End
+
+Lbl Q
+ClrHome
+Str1
+DelVar BDelVar IDelVar KDelVar ʟTEMPDelVar ʟTEXTDelVar Str1DelVar Str2Ans

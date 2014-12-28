@@ -1,0 +1,14 @@
+// LEAST COMMON MULTIPLE
+// A program for taking test with (since the lcm function only takes two arguments)
+// Takes inputs via L₁
+
+If not(dim(L₁
+Return
+
+1→X
+For(I,1,dim(L₁))
+	lcm(X,L₁(I→X
+End
+
+X
+DelVar IAns

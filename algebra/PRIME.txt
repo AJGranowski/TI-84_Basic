@@ -1,0 +1,38 @@
+// PRIME
+// Calculates primes and stores it to ʟPRIME
+
+// Get and sterilize input
+Input " HOW MANY?: ",X
+If X<1
+1→X
+iPart(X→X
+
+// Unarchive/initialize ʟPRIME
+SetUpEditor PRIME
+If not(dim(ʟPRIME
+{2,3→PRIME
+
+dim(ʟPRIME→θ
+
+ʟPRIME(θ→A
+
+While X>θ
+  A+2→A
+  not(sum(not(fPart(A/ʟPRIME
+  While Ans
+    θ+1→θ
+    A→ʟPRIME(θ
+    0
+  End
+End
+
+ʟPRIME→TEMP
+Archive ʟPRIME
+
+// Trim the primes to the length that the user wanted (Since the primes persist on memory)
+X→dim(ʟTEMP
+
+SetUpEditor 
+ʟTEMP
+DelVar ADelVar ʟTEMP
+Ans

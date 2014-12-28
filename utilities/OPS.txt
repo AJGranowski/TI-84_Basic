@@ -1,0 +1,69 @@
+// OPERATIONS PER SECOND
+
+// Decimal accuracy? (I can't quite remember, higher is more accurate)
+3
+
+Goto I
+
+// Main loop (Using labels because nested loops slow down the deeper you go)
+Lbl L
+
+startTmr→T
+
+For(I,1,Z)
+	
+	// Test your code here!
+	
+End
+
+checkTmr(T→T
+
+// If the time was great enough for our accuracy level, move on
+If Ans≥θ
+	Goto Q
+
+If not(T
+	1→T
+
+// Calculate how may loops we need from the previous trial to meet the time
+θZ/T→Z
+
+// Increase the loop counter for debugging purposes
+C+1→C
+
+Output(4,9,C
+Output(5,9,int(Z
+
+Goto L
+
+// Initialize
+Lbl I
+If Ans<.1+log(2
+	.1+log(2
+
+// I forgot how I derived this expression, but it's used to calculate time required for accuracy level
+(√(1+4(10)^Ans)-1)/2→θ
+Ans→T
+2→Z
+1→C
+
+ClrHome
+
+For(I,1,7)
+	Disp " 
+End
+
+Output(1,1,"CALCULATING...
+Output(3,1,"C-TIME:
+Output(3,9,int(θ+.9999999999
+Output(4,1,"CYCLE : 1
+Output(5,1,"LOOPS : 1
+Goto L
+
+Lbl Q
+Output(7,2,"+/-
+Z/(2T²+2T
+Output(7,6,Ans
+Z/T+Ans
+DelVar IDelVar TDelVar θDelVar CDelVar Z
+Ans

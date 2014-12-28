@@ -1,0 +1,90 @@
+// BITWISE OPERATIONS
+// VARIABLES:
+// O = Operation code
+// X = Temporary integer register
+// B = Bit depth (8 = 8-bit, 32 = 32-bit)
+// ʟA = Integer A in base 2
+// ʟB = Integer B in base 2
+
+Input "OPCODE: ",O
+Input "INT-A: ",X
+32→B
+
+// Convert integer X into base 2 ans store it to ʟA
+X
+fPart(Ans/seq(2^X,X,B,1,⁻1))≥.5→A
+
+// Since opcodes 0-2 are only dealing with one integer, we will only ask for integer B if the opcode calls for it
+O>2
+While Ans
+Input "INT-B: ",X
+X
+fPart(Ans/seq(2^X,X,B,1,⁻1))≥.5→B
+0
+End
+
+// Bitwise NOT
+not(O
+While Ans
+not(ʟA→A
+0
+End
+
+// Bitwise SHIFT-LEFT
+O=1
+While Ans
+ʟA(B→X
+B-1→dim(ʟA
+augment({X},ʟA→A
+0
+End
+
+// Bitwise SHIFT-RIGHT
+O=2
+While Ans
+ʟA(1→X
+DeltaList(cumSum(ʟA→A
+X→ʟA(B
+0
+End
+
+// Bitwise AND
+O=3
+While Ans
+ʟA and ʟB→A
+0
+End
+
+// Bitwise OR
+O=4
+While Ans
+ʟA or ʟB→A
+0
+End
+
+// Bitwise XOR
+O=5
+While Ans
+ʟA xor ʟB→A
+0
+End
+
+// Bitwise ADD
+O=6
+While Ans
+0→C
+For(I,B,1,⁻1)
+ʟA(I→X
+ʟB(I→Y
+X xor Y xor C→ʟA(I
+((X and Y) or (X and C)) or (Y and C)→C
+End
+0
+End
+
+// Convert from base 2 to base 10
+ʟA
+sum(Ans*seq(2^(X-1),X,B,1,⁻1)
+
+// Clean up and display output
+DelVar ADelVar BDelVar CDelVar IDelVar ODelVar YDelVar ʟADelVar ʟBAns

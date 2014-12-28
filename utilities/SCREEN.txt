@@ -1,0 +1,10 @@
+// SCREEN
+// Get the screen resolution of the calculator
+StoreGDB 1
+0→Xmin
+0→Ymin
+1→∆X
+1→∆Y
+{Xmax,Ymax
+RecallGDB 1
+DelVar GDB1Ans
