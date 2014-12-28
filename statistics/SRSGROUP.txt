@@ -1,5 +1,5 @@
 // SIMPLE RANDOM SAMPLE GROUP
-// Selects x numbers from 1 to y and splits them up into z groups
+// Selects X numbers from 1 to Y and splits them up into Z groups
 
 DelVar X
 SetUpEditor A
