@@ -1,5 +1,5 @@
 // FACTOR
-// Factors any number down to it's primes
+// Factors any number down to its primes
 
 Prompt X
 X
@@ -42,7 +42,7 @@ End
 
 abs(X→X
 
-// Factor out 2's
+// Factor out 2s
 While not(fPart(Ans/2
 	2→ʟTEMP(1+dim(ʟTEMP
 	X/2→X
